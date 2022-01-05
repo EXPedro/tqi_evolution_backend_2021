@@ -6,18 +6,18 @@
 🔒 Possui sistema de login com encriptação/decriptação de senha, para autenticação de cliente cadastrado, criação de novos empréstimos, 
 e visualização destes empréstimos pelo cliente- inclusive com detalhamento dos mesmos💰
 
-### Sumário  
+### Sumario  
 
 [Ferramentas utilizadas](#ferramentas-utilizadas)     
 [O problema](#o-problema)     
-[A solução](#a-soluo)     
+[A saida](#a-saida)     
 [Constraints](#constraints)     
 [Banco de dados](#banco-de-dados)     
 [Spring Security](#spring-security)     
 [Bugs](#bugs)              
 [Postman](#postman)     
-[Modelos de Requisição](#modelos-de-requisio)     
-[Melhoria Contínua](#melhoria-contnua)  
+[Modelos de Requests](#modelos-de-requests)     
+[Melhoria Continua](#melhoria-continua)  
 
 ### 👨‍🔧 Ferramentas utilizadas    
 
@@ -27,7 +27,7 @@ e visualização destes empréstimos pelo cliente- inclusive com detalhamento do
 - **Lombok:** Auxilia o desenvolvimento de aplicações, como na utilização de annotations para gerar getters, setters e construtores
 - **Mapstruct:** Realiza o mapeamento de objetos em entidades, e vice-versa. Bastante útil quando se trabalha com banco de dados
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
 ### 🤯 O problema
 
@@ -45,9 +45,9 @@ Na listagem, devemos retornar no mínimo o código do empréstimo, o valor e a q
 No detalhe do empréstimo, devemos retornar: 
 código do empréstimo, valor, quantidade de parcelas, data da primeira parcela, e-mail do cliente e renda do cliente.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
-### 🧠 A solução
+### 🧠 A saida
 
 Foi criado um banco de dados com 3 tabelas: Clientes, Emprestimos e Login. A tabela Login é "abastecida" pela tabela Clientes. Bem como a tabela Emprestimos (apenas Clientes cadastrados podem criar entidades empréstimo).  
 Foram mapeadas estas tabelas no backend, utilizando o ***mapstruct***. Com ele, cada entidade do banco de dados é refletida num **objeto DTO**, numa demonstração de como deve ser feita a manipulação dos dados pelo backend.
@@ -60,7 +60,7 @@ Foram definidos os ***endpoints*** para cada requisição feita ao banco de dado
 Por fim, foi instalada a dependência Spring Security, que adiciona uma camada de segurança nos dados, e permite que as senhas da API 
 trafeguem na rede devidamente codificadas.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
 ### 🛑 Constraints
 
@@ -69,7 +69,7 @@ Foi utilizado também o value unique, da annotation Column, para que o email per
 No caso da data inicial do empréstimo, ela não pode ser 3 meses depois da data atual. Para essa demonstração, foi criada uma 
 annotation para implementar essa constraint, utilizando a data de agora da JVM.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
    
 ### 🗄️ Banco de Dados   
 
@@ -87,7 +87,7 @@ O banco de dados criado está estruturado da seguinte maneira:
 \* A tabela "Login" é preenchida automaticamente ao se cadastrar um novo cliente. Tirando **email** e **password**, todos os outros
 parâmetros são criados com valores **default**, pois esta tabela é apenas a título de demonstração.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
 ### 🛡️ Spring Security    
 
@@ -104,7 +104,7 @@ ser visto na figura abaixo:
 Como este projeto é uma demonstração, não foram implementados todos os potenciais recursos disponibilizados pelo *framework*, embora 
 no código encontre-se comentadas algumas configurações para uma futura implementação.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
 ### 🐛 Bugs     
 
@@ -113,7 +113,7 @@ um mapeamento errado (cfme #2251 e #2301). De qualquer jeito, uma "solução" pa
 arquivos de mapeamento (ClienteMapper.java, EmprestimoMapper.java, ...), alterando até espaçamentos... e então a
 criação de entidades (criaCliente e criaEmprestimo) torna-se novamente funcional.
 
-[volta ao topo](#sumrio)
+[volta ao topo](#sumario)
 
 ### 📬 Postman
 
@@ -134,9 +134,9 @@ Pode-se utilizar o postman para fazer as requisições em 'http://localhost:8087
 
   ![GET detalheEmprestimo](src/main/resources/assets/detalha-e.png?raw=true)  
 
-[volta ao topo](#sumrio)  
+[volta ao topo](#sumario)  
 
-### 🤔 Modelos de requisição
+### 🤔 Modelos de requests
 
 Alguns dados já formatados para inserção (um por vez) via **postman**, 
 em 'http://localhost:8087/api/v1/cadastro/' :    
@@ -205,9 +205,9 @@ Para retornar os empréstimos de cada cliente, no endereço 'http://localhost:80
 Por fim, para requisitar o detalhamento de cada empréstimo, deve-se usar o *endpoint* 'http://localhost:8087/api/v1/detalhes/{idEmprestimo}'    
 \* os valores entre chaves { } nos *endpoints* devem ser substituídas pelas respectivas id's.
 
-[volta ao topo](#sumrio)    
+[volta ao topo](#sumario)    
 
-### 🌞 Melhoria contínua    
+### 🌞 Melhoria continua    
 
 Apesar desta API ser apenas uma demonstração, durante o seu desenvolvimento foram observadas diversas oportunidades de melhoria,
 tanto para o código como para o funcionamento seguro da API.   
