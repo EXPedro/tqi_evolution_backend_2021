@@ -86,7 +86,18 @@ no código encontre-se comentadas algumas configurações para uma futura implem
 Conforme relatado [aqui](https://github.com/mapstruct/mapstruct/releases/tag/1.4.2.Final), o mapstruct pode fazer
 um mapeamento errado (cfme #2251 e #2301). De qualquer jeito, uma "solução" paliativa, aparentemente, é editar os
 arquivos de mapeamento (ClienteMapper.java, EmprestimoMapper.java, ...), alterando até espaçamentos... e então a
-criação de entidades (criaCliente e criaEmprestimo) torna-se novamente funcional.  
+criação de entidades (criaCliente e criaEmprestimo) torna-se novamente funcional.    
+
+### 🌞 Oportunidades de melhoria  
+
+Esta API é apenas uma demonstração, mas durante o seu desenvolvimento foram observadas diversas oportunidades de melhoria,
+tanto para o código como para o funcionamento seguro da API.   
+O **envio automático de email** para a confirmação do cadastro pode ser implementada. Também pode ser criada uma **página customizada
+para o "login"** (como indicado em "WebSecurityConfig.java"), e definida uma "home.html" para onde a API redireciona após um login
+realizado com sucesso.   
+Pode-se **restringir o acesso** aos clientes não logados a determinados endpoints, através dos "antMatchers". Também podem ser 
+implementadas facilmente, como indicado no código, a função **"rememberMe()"**.   
+E, o mais importante, as **necessidades do cliente**, principalmente, devem ser ouvidas e assim que possível, implementadas.     
 
 ### 📬 Postman
 
@@ -105,7 +116,7 @@ Pode-se utilizar o postman para fazer as requisições em 'http://localhost:8087
 
 - Requisição de GET em "api/v1/detalhes/{idEmprestimo}" Para listar os detalhes de cada empréstimo
 
-  ![GET detalheEmprestimo](src/main/resources/assets/detalha-e.png?raw=true)  
+  ![GET detalheEmprestimo](src/main/resources/assets/detalha-e.png?raw=true)    
 
 ### 🤔 Modelos de request
 
@@ -174,23 +185,11 @@ e retorna um erro. Para fins desta demonstração, não foram criados tratamento
 implementado posteriormente. Apenas alguns erros de validação são tratados nesta API.  
 Para retornar os empréstimos de cada cliente, no endereço 'http://localhost:8087/api/v1/emprestimos/{idCliente}'  
 Por fim, para requisitar o detalhamento de cada empréstimo, deve-se usar o *endpoint* 'http://localhost:8087/api/v1/detalhes/{idEmprestimo}'    
-\* os valores entre chaves { } nos *endpoints* devem ser substituídas pelas respectivas id's.
+\* os valores entre chaves { } nos *endpoints* devem ser substituídas pelas respectivas id's.  
 
-### 🌞 Melhoria contínua    
 
-Apesar desta API ser apenas uma demonstração, durante o seu desenvolvimento foram observadas diversas oportunidades de melhoria,
-tanto para o código como para o funcionamento seguro da API.   
-O envio automático de email para a confirmação do cadastro pode ser implementada. Também pode ser criada uma página customizada
-para o "login" (como indicado em "WebSecurityConfig.java"), e definida uma "home.html" para onde a API redireciona após um login 
-realizado com sucesso.   
-Algumas configurações do Spring Security podem ser feitas para aumentar a segurança da aplicação, restringindo o acesso aos usuários
-não logados a determinados endpoints, através dos "antMatchers". Também podem ser implementadas facilmente, como indicado no código,
-a função "rememberMe()" para que o browser do cliente se "lembre" que este cliente já está logado.   
-A resposta das requisições de GET relacionadas aos empréstimos também pode ser melhorada, criando objetos que mapeiem cada uma das 
-requisições, para uma resposta mais limpa. Isso foi feito na classe "DetalheEmprestimo.java", por exemplo.   
-Todo o processo de desenvolvimento implica sempre na busca pela melhoria contínua, seja de métodos, mapeamento de objetos, 
-segurança, visando a otimização do código.  
-As necessidades do cliente, principalmente, devem ser ouvidas e, na medida do possível, implementadas.  
+
+
 
 #### 🟡 Projeto feito em 05/01/2022.
 
