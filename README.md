@@ -41,8 +41,9 @@ Foram definidos os ***endpoints*** para cada requisição feita ao banco de dado
 - Requisição de **POST**  em "api/v1/emprestimos/{idCliente}" Para o cadastro de empréstimos pela id do cliente
 - Requisição de **GET** em "api/v1/emprestimos/{idCliente}" Para listar os empréstimos pela id do cliente
 - Requisição de **GET** em "api/v1/detalhes/{idEmprestimo}" Para listar os detalhes de cada empréstimo   
-Por fim, foi instalada a dependência Spring Security, que adiciona uma camada de segurança nos dados, e permite que as senhas da API 
-trafeguem na rede menos desprotegidas.
+- Por fim, foi instalada a dependência Spring Security, que adiciona uma camada de segurança nos dados, e permite que as senhas da API 
+trafeguem na rede menos desprotegidas.     
+
 Esta API está funcional, mas eventuais melhorias e pequenos ajustes podem ser feitos. Independente disso, já se podem utilizar os endpoints com todas as funcionalidades requeridas. 
 
 ### 🛑 Constraints
