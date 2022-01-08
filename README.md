@@ -11,6 +11,7 @@ e visualização destes empréstimos pelo cliente- inclusive com detalhamento do
 - **Banco de dados H2:** Banco de dados completo, com a vantagem de rodar direto na JVM
 - **Spring Web:** Dependência que adiciona Servlets e Portles na aplicação
 - **Spring JPA:** Dependência que adiciona funcionalidades do padrão JPA. Implementação com hibernate
+- **Spring Security:** Adicioona uma camada de segurança para a proteção de dados sensíveis. 
 - **Lombok:** Auxilia o desenvolvimento de aplicações, como na utilização de annotations para gerar getters, setters e construtores
 - **Mapstruct:** Realiza o mapeamento de objetos em entidades, e vice-versa. Bastante útil quando se trabalha com banco de dados
 
