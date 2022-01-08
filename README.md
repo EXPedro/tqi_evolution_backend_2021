@@ -31,7 +31,7 @@ Na listagem, devemos retornar no mínimo o código do empréstimo, o valor e a q
 No detalhe do empréstimo, devemos retornar: 
 código do empréstimo, valor, quantidade de parcelas, data da primeira parcela, e-mail do cliente e renda do cliente.
 
-### 🧠 A saida
+### 🧠 A solução
 
 Foi criado um banco de dados com 3 tabelas: Clientes, Emprestimos e Login. A tabela Login é "abastecida" pela tabela Clientes. Bem como a tabela Emprestimos (apenas Clientes cadastrados podem criar entidades empréstimo).  
 Foram mapeadas estas tabelas no backend, utilizando o ***mapstruct***. Com ele, cada entidade do banco de dados é refletida num **objeto DTO**, numa demonstração de como deve ser feita a manipulação dos dados pelo backend.
@@ -42,7 +42,8 @@ Foram definidos os ***endpoints*** para cada requisição feita ao banco de dado
 - Requisição de **GET** em "api/v1/emprestimos/{idCliente}" Para listar os empréstimos pela id do cliente
 - Requisição de **GET** em "api/v1/detalhes/{idEmprestimo}" Para listar os detalhes de cada empréstimo   
 Por fim, foi instalada a dependência Spring Security, que adiciona uma camada de segurança nos dados, e permite que as senhas da API 
-trafeguem na rede devidamente codificadas.
+trafeguem na rede menos desprotegidas.
+Esta API está funcional, mas eventuais melhorias e pequenos ajustes podem ser feitos. Independente disso, já se podem utilizar os endpoints com todas as funcionalidades requeridas. 
 
 ### 🛑 Constraints
 
@@ -92,18 +93,20 @@ criação de entidades (criaCliente e criaEmprestimo) torna-se novamente funcion
 ### 🌞 Oportunidades de melhoria  
 
 Esta API é apenas uma demonstração, mas durante o seu desenvolvimento foram observadas diversas oportunidades de melhoria,
-tanto para o código como para o funcionamento seguro da API.   
+tanto para o código como para o funcionamento seguro da API.    
+O mais importante, as **necessidades do cliente**, principalmente, devem ser ouvidas e assim que possível, implementadas.   
 O **envio automático de email** para a confirmação do cadastro pode ser implementada. Também pode ser criada uma **página customizada
 para o "login"** (como indicado em "WebSecurityConfig.java"), e definida uma "home.html" para onde a API redireciona após um login
 realizado com sucesso.   
 Pode-se **restringir o acesso** aos clientes não logados a determinados endpoints, através dos "antMatchers". Também podem ser 
-implementadas facilmente, como indicado no código, a função **"rememberMe()"**.   
-E, o mais importante, as **necessidades do cliente**, principalmente, devem ser ouvidas e assim que possível, implementadas.     
+implementadas facilmente, como indicado no código, a função **"rememberMe()"**.  
+Criar uma lógica para a criação de usuários com privilégios menos restritos.
+A implementação de outras requisições http (UPDATE, DELETE, etc.), onde aplicáveis, conforme as necessidades do cliente
 
 ### 📬 Postman
 
 Pode-se utilizar o postman para fazer as requisições em 'http://localhost:8087/'
-- Requisição de POST em "api/v1/cadastro" Para o cadastro de clientes, ponto de entrada desta API
+- Requisição de POST em "api/v1/cadastro" Para o cadastro de clientes, ponto de entrada desta API. Todos os clientes são criados com status de "USER" (ver oportunidades de melhoria)
 
   ![POST cadastroCliente](src/main/resources/assets/cria-c.png?raw=true)
 
@@ -192,7 +195,7 @@ Por fim, para requisitar o detalhamento de cada empréstimo, deve-se usar o *end
 
 
 
-#### 🟡 Projeto feito em 05/01/2022.
+#### 🟡 Implementação funcional realizada em 05/01/2022.
 
 
 
